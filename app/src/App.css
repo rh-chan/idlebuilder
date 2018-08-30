@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+@font-face {
+    font-family: 'decima';
+    src: url('./DecimaMonoPro.otf');
+}
+
+@font-face {
+  font-family: 'bariol';
+  src: url('./bariol_regular.otf');
+}
+
+a {
+  color: #363636;
+  text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+  color: blue;
+}
+
+body {
+  font-family: 'bariol', sans-serif;
+  color: #363636;
+}
+
+.nav-bar-background{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-color: #363636;
+}
+
+.nav-bar{
+  font-family: 'decima', sans-serif;
+  font-size: 10pt;
+  margin-top: 20px;
+  margin-left: -5px;
+}
+
+.nav-bar .nav{
+  display: inline;
+  margin-right: 50px;
+}
+
+.nav-bar a{
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bar a:hover, a:focus, a:active {
+  color: blue;
+}
+
+.title {
+  font-family: 'Luckiest Guy';
+  text-align: center;
+  font-size: 36pt;
+  font-weight: 300;
+}
+
+.subtitle {
+  font-family: 'Bariol';
+  text-align: center;
+  font-size: 12pt;
+  font-weight: 300;
+}
+
+.text {
+  font-family: 'bariol';
+  text-align: center;
+  font-size: 10pt;
+  margin-left: 20px;
+}
+
+.main-search{
+  margin-top: 75px;
+}
+
+.search-username-form {
+  margin: auto;
+  margin-top: 20px;
+  max-width: 500px;
+  width: 300px;
+  flex-direction: column;
+}
+
+.search-username-form .input{
+ font-size: 12px;
+ padding: 8px 10px;
+ font-family: 'decima';
+ border-style: solid;
+ border-color: #F4F4F4;
+ width: 200px;
+ display: inline;
+}
+
+.search-username-form .btn{
+  border: none;
+  background-color: Transparent;
+  color: blue;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'decima';
+  font-size: 12pt;
+  width: 40px;
+  display: inline;
+  padding-left: -50px;
+  padding-top: 5px;
+}
+
+@media (min-width: 500px) {
+  .main-search{
+    margin-top: 100px;
+  }
+
+  .text {
+    font-family: 'bariol';
+    text-align: center;
+    font-size: 10pt;
+  }
+
+  .search-username-form {
+    margin: auto;
+    margin-top: 20px;
+    max-width: 500px;
+    width: 500px;
+    flex-direction: column;
+  }
+
+  .search-username-form .input{
+   font-size: 12px;
+   padding: 8px 10px;
+   font-family: 'decima';
+   border-style: solid;
+   border-color: #F4F4F4;
+   width: 400px;
+   display: inline;
+  }
+
+}
