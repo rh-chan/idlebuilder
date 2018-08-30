@@ -14,7 +14,7 @@ Always run in virtualenv
 - `npm run build` compiles everything into build.
 
 #### Server
-- Code is developed in idlesummoner (?)
+- Code is developed in idlesummoner
 
 ## Running
 - All of this is ran in the root Django folder: idlesummoner/app/.
