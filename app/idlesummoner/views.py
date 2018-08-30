@@ -13,7 +13,7 @@ def get_fortnite_id(username):
     player = fortnite.player(username)
     id = player.id
 
-    #id = "00000000"
+    # id = "00000000"
     return id
 
 class FortniteNameView(APIView):
