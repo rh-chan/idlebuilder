@@ -1,45 +1,25 @@
 from django.shortcuts import render
-from django.views.generic import View
-from idlesummoner.key import RIOT_API_KEY
+from rest_framework.views import APIView
+from rest_framework.response import Response
 import requests, json
 
-# {0} Regions: BR1, EUN1, EUW1, JP1, KR, LA1 (LAN), LA2 (LAS), NA1, OC1, TR1, RU
-# {1} Summoner Name
-# {2} API Keey
-BASE_URL = "https://{0}.api.riotgames.com/lol/summoner/v3/summoners/by-name/{1}?api_key={2}"
+from pfaw import Fortnite, Platform, Mode
+from idlesummoner.key import FORTNITE_TOKEN, LAUNCHER_TOKEN, PASSWORD, EMAIL
 
-def generate_url(region, summoner_name):
-    return BASE_URL.format(region, summoner_name, api_key)
 
-def get_summoner_name_info(region, summoner_name, api_key = RIOT_API_KEY):
-    """
-    Calls the Riot API for a user's summoner info.
-    Request is made using region, summoner name, and an API key.
+fortnite = Fortnite(fortnite_token=FORTNITE_TOKEN, launcher_token=LAUNCHER_TOKEN, password=PASSWORD, email=EMAIL)
 
-    returns summoenr info - {accountId, summonerName, profileIconId, revisionDate}
-    """
-    url = generate_url(region, summoner_name, api_key)
-    response = requests.get(url)
-    data = response.json()
-    if response.status_code == 404:
-        summoner_info = {
-            'accountId': -1,
-            summonerName: summoner_name,
-            'profileIconId': 1,
-            'revisionDate': -1
-        }
-    else:
-        summoner_info = {
-            'accountId':  data['accountId'],
-            'summonerName': data['name'],
-            'profileIconId': data['profileIconId'],
-            'revisionDate': data['revisionDate']
-        }
-    return json.dumps(summoner_info)
+def get_fortnite_id(username):
+    player = fortnite.player(username)
+    id = player.id
 
-class SummonerNameInfoView(View):
-    """
-    View to see the info from a summoner name
-    """
-    def get(self, request, name, region):
-        return get_summoner_name_info(region, name)
+    #id = "00000000"
+    return id
+
+class FortniteNameView(APIView):
+    def get(self, request, *args, **kwargs):
+        username = kwargs.get('username', '')
+        return Response(get_fortnite_id(username))
+
+    def put(self, request, *args, **kwargs):
+        pass
