@@ -7,13 +7,13 @@ from pfaw import Fortnite, Platform, Mode
 from idlesummoner.key import FORTNITE_TOKEN, LAUNCHER_TOKEN, PASSWORD, EMAIL
 
 
-fortnite = Fortnite(fortnite_token=FORTNITE_TOKEN, launcher_token=LAUNCHER_TOKEN, password=PASSWORD, email=EMAIL)
+#fortnite = Fortnite(fortnite_token=FORTNITE_TOKEN, launcher_token=LAUNCHER_TOKEN, password=PASSWORD, email=EMAIL)
 
 def get_fortnite_id(username):
-    player = fortnite.player(username)
-    id = player.id
+    #player = fortnite.player(username)
+    #id = player.id
 
-    # id = "00000000"
+    id = "00000000"
     return id
 
 class FortniteNameView(APIView):
